@@ -1,0 +1,2 @@
+module ArgyleHelper
+end
