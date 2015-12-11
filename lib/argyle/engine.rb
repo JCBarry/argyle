@@ -1,5 +1,3 @@
-# require 'rails'
-
 module Argyle
   class Engine < ::Rails::Engine
 
