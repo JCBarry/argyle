@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Argyle::VERSION
   s.authors     = ["Jason Barry"]
   s.email       = ["jay@jcbarry.com"]
-  s.homepage    = "TODO"
+  s.homepage    = "https://github.com/JCBarry/argyle"
   s.summary     = "Rails helpers for Plaid Link"
   s.description = "Easily integrate Plaid Link into your Rails application"
   s.license     = "MIT"
