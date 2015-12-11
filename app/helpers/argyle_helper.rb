@@ -20,6 +20,6 @@ module ArgyleHelper
     data-env="#{env}"></script>
     TAGS
 
-    tag
+    tag.html_safe
   end
 end
