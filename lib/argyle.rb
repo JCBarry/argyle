@@ -3,6 +3,8 @@ require_relative 'argyle/configuration'
 require_relative 'argyle/engine'
 
 module Argyle
+  class Error < StandardError; end
+
   class << self
     attr_writer :configuration
   end
