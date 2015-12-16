@@ -1,25 +1,22 @@
 module ArgyleHelper
   def plaid_link(options)
-    raise "No Argyle configuration found. Does initializers/argyle.rb exist?" unless Argyle.configuration
-    raise "Public key must be set in Argyle configuration" unless Argyle.configuration.key
-    raise "options[:name] is required for Plaid Link" unless options[:name]
-    raise "options[:action] is required for Plaid Link" unless options[:action]
+    raise Argyle::Error, "Public key must be set in Argyle configuration" unless Argyle.configuration.key
+    raise Argyle::Error, "options[:name] is required for Plaid Link" unless options[:name]
+    raise Argyle::Error, "options[:action] is required for Plaid Link" unless options[:action]
 
     id = options[:form_id] || 'plaidForm'
     product = options[:product] || Argyle.configuration.product
     env = options[:env] || Argyle.configuration.env
 
-    tag = <<-TAGS
-    <form id="#{id}" method="GET" action="#{options[:action]}"></form>
-    <script
-    src="#{Argyle.configuration.plaid_src}"
-    data-client-name="#{options[:name]}"
-    data-form-id="#{id}"
-    data-key="#{Argyle.configuration.key}"
-    data-product="#{product}"
-    data-env="#{env}"></script>
-    TAGS
+    plaid_link_form(id, options[:action]) +
+    plaid_link_script(id, options[:name], product, env)
+  end
 
-    tag.html_safe
+  def plaid_link_form(id, action)
+    form_tag action, method: 'GET', id: id
+  end
+
+  def plaid_link_script(id, name, product, env)
+    javascript_tag '', src: Argyle.configuration.plaid_src, data: {'client-name': name, 'form-id': id, 'key': Argyle.configuration.key, 'product': product, 'env': env }
   end
 end
