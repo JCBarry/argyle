@@ -16,4 +16,10 @@ describe Argyle do
       expect { raise Argyle::Error }.to raise_exception(Argyle::Error)
     end
   end
+
+  describe '#plaid_client' do
+    it 'responds to plaid_client' do
+      expect(Argyle).to respond_to(:plaid_client)
+    end
+  end
 end
