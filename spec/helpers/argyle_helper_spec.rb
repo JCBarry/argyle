@@ -28,11 +28,11 @@ describe ArgyleHelper do
 
   describe "#plaid_link_form" do
     it "returns plaid form with specified action" do
-      expect(helper.plaid_link_form('myId', plaid_index_path)).to eq('<form id="myId" action="/plaid/index" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />')
+      expect(helper.plaid_link_form('myId', plaid_index_path)).to eq('<form id="myId" action="/plaid/index" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />')
     end
 
     it "returns plaid form with specified id" do
-      expect(helper.plaid_link_form('myId', plaid_index_path)).to eq('<form id="myId" action="/plaid/index" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />')
+      expect(helper.plaid_link_form('myId', plaid_index_path)).to eq('<form id="myId" action="/plaid/index" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />')
     end
   end
 
