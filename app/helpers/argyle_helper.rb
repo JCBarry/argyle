@@ -13,10 +13,10 @@ module ArgyleHelper
   end
 
   def plaid_link_form(id, action)
-    form_tag action, method: 'GET', id: id
+    form_tag action, method: 'POST', id: id
   end
 
   def plaid_link_script(id, name, product, env)
-    javascript_tag '', src: Argyle.configuration.plaid_src, data: {'client-name': name, 'form-id': id, 'key': Argyle.configuration.key, 'product': product, 'env': env }
+    javascript_tag '', src: Argyle.configuration.plaid_src, data: {'client-name' => name, 'form-id' => id, 'key' => Argyle.configuration.key, 'product' => product, 'env' => env }
   end
 end
