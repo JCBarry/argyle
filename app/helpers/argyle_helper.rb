@@ -8,8 +8,7 @@ module ArgyleHelper
     product = options[:product] || Argyle.configuration.product
     env = options[:env] || Argyle.configuration.env
 
-    plaid_link_form(id, options[:action]) +
-    plaid_link_script(id, options[:name], product, env)
+    plaid_link_form(id, options[:action]) + plaid_link_script(id, options[:name], product, env)
   end
 
   def plaid_link_form(id, action)
