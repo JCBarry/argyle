@@ -6,12 +6,14 @@ A Rails plugin to make adding Plaid Link integrations super easy.  The plugin ai
 Add this line to your Rails application's Gemfile:
 
 ```ruby
-  gem 'argyle'
+gem 'argyle'
 ```
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 ## Configuration
 
@@ -37,11 +39,11 @@ config.product = "connect"        # defaults to 'auth'
 The `plaid_link` helper takes the following options:
 
 ```ruby
-    :name => required     # name of the customer used in Plaid Link flow
-    :action => required   # form action that will be called on successful authentication
-    :id => 'plaidForm'    # HTML id of the form
-    :env => 'tartan'      # overrides Argyle.configuration.env
-    :product => 'auth'    # overrides Arygle.configuration.product
+:name => required     # name of the customer used in Plaid Link flow
+:action => required   # form action that will be called on successful authentication
+:id => 'plaidForm'    # HTML id of the form
+:env => 'tartan'      # overrides Argyle.configuration.env
+:product => 'auth'    # overrides Arygle.configuration.product
 ```
 
 Simply place the helper in any of your views to add the Plaid button:
