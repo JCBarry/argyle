@@ -18,36 +18,46 @@ And then execute:
 Create an initializer named `argyle.rb` in your `config/initializers/` directory.
 It should look like this:
 
-    Argyle.configure do |config|
-      config.key = 'test_key'         # Public key from Plaid
-      config.secret = "test_secret"   # Secret from Plaid
-      config.customer_id = "test_id"  # Client ID from Plaid
-    end
+```ruby
+Argyle.configure do |config|
+  config.key = 'test_key'         # Public key from Plaid
+  config.secret = "test_secret"   # Secret from Plaid
+  config.customer_id = "test_id"  # Client ID from Plaid
+end
+```
 
 You may also _optionally_ configure the following:
 
-    config.env = "production"         # defaults to 'tartan' (Plaid's test environment)
-    config.product = "connect"        # defaults to 'auth'
+```ruby
+config.env = "production"         # defaults to 'tartan' (Plaid's test environment)
+config.product = "connect"        # defaults to 'auth'
+```
 
 ## Using the Helper
 The `plaid_link` helper takes the following options:
 
+```ruby
     :name => required     # name of the customer used in Plaid Link flow
     :action => required   # form action that will be called on successful authentication
     :id => 'plaidForm'    # HTML id of the form
     :env => 'tartan'      # overrides Argyle.configuration.env
     :product => 'auth'    # overrides Arygle.configuration.product
+```
 
 Simply place the helper in any of your views to add the Plaid button:
 
-    <%= plaid_link(:name => 'Tony Soprano', :action => my_callback_path) %>      
+```erb
+<%= plaid_link(:name => 'Tony Soprano', :action => my_callback_path) %>      
+```
 
 ## Using the Callback Controller (optional)
 Argyle ships with an application controller that takes care of the Plaid token exchange and quickly gives you access to a Plaid user and access token.  You can choose to use this controller to scaffold your Plaid Link callback by simply extending it, like so:
 
-    class MyPersonalCallBack < Argyle::CallbackController
-      ...
-    end
+```ruby
+class MyPersonalCallBack < Argyle::CallbackController
+  ...
+end
+```
 
 Inside your controller you now have access to the following methods:
 
