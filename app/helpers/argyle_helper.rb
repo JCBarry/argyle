@@ -8,14 +8,14 @@ module ArgyleHelper
     product = options[:product] || Argyle.configuration.product
     env = options[:env] || Argyle.configuration.env
 
-    plaid_link_form(id, options[:action]) + plaid_link_script(id, options[:name], product, env)
+    plaid_link_form(id, options[:action]) + plaid_link_script(id, options[:name], product, env, options)
   end
 
   def plaid_link_form(id, action)
     form_tag action, method: 'POST', id: id
   end
 
-  def plaid_link_script(id, name, product, env)
-    javascript_tag '', src: Argyle.configuration.plaid_src, data: {'client-name' => name, 'form-id' => id, 'key' => Argyle.configuration.key, 'product' => product, 'env' => env }
+  def plaid_link_script(id, name, product, env, options)
+    javascript_tag '', src: Argyle.configuration.plaid_src, data: {'client-name' => name, 'form-id' => id, 'key' => Argyle.configuration.key, 'product' => product, 'env' => env, 'webhook' => options[:webhook], 'token' => options[:token] }
   end
 end
