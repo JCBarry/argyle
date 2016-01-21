@@ -58,8 +58,18 @@ describe ArgyleHelper do
   end
 
   describe "#plaid_link_script" do
-    it "returns plaid script with" do
+    it "returns plaid script tag" do
       expect(helper.plaid_link_script('id', 'name', 'product', 'env', @options)).to eq("<script src=\"https://cdn.plaid.com/link/stable/link-initialize.js\" data-client-name=\"name\" data-form-id=\"id\" data-key=\"key\" data-product=\"product\" data-env=\"env\" data-webhook=\"http://myhook.com\" data-token=\"myToken\">\n//<![CDATA[\n\n//]]>\n</script>")
+    end
+
+    it "optionally returns plaid script tag with webhook" do
+      @options.delete :webhook
+      expect(helper.plaid_link_script('id', 'name', 'product', 'env', @options)).to eq("<script src=\"https://cdn.plaid.com/link/stable/link-initialize.js\" data-client-name=\"name\" data-form-id=\"id\" data-key=\"key\" data-product=\"product\" data-env=\"env\" data-token=\"myToken\">\n//<![CDATA[\n\n//]]>\n</script>")
+    end
+
+    it "optionally returns plaid script tag with token" do
+      @options.delete :token
+      expect(helper.plaid_link_script('id', 'name', 'product', 'env', @options)).to eq("<script src=\"https://cdn.plaid.com/link/stable/link-initialize.js\" data-client-name=\"name\" data-form-id=\"id\" data-key=\"key\" data-product=\"product\" data-env=\"env\" data-webhook=\"http://myhook.com\">\n//<![CDATA[\n\n//]]>\n</script>")
     end
   end
 end

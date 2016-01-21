@@ -16,6 +16,16 @@ module ArgyleHelper
   end
 
   def plaid_link_script(id, name, product, env, options)
-    javascript_tag '', src: Argyle.configuration.plaid_src, data: {'client-name' => name, 'form-id' => id, 'key' => Argyle.configuration.key, 'product' => product, 'env' => env, 'webhook' => options[:webhook], 'token' => options[:token] }
+    data = {
+      'client-name' => name,
+      'form-id' => id,
+      'key' => Argyle.configuration.key,
+      'product' => product,
+      'env' => env
+    }
+    data['webhook'] = options[:webhook] if options[:webhook]
+    data['token'] = options[:token] if options[:token]
+
+    javascript_tag '', src: Argyle.configuration.plaid_src, data: data
   end
 end
