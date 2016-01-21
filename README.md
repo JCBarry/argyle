@@ -47,6 +47,8 @@ The `plaid_link` helper takes the following options:
 :id => 'plaidForm'    # HTML id of the form
 :env => 'tartan'      # overrides Argyle.configuration.env
 :product => 'auth'    # overrides Arygle.configuration.product
+:webhook => optional  # optionally set a webhook for a user
+:token => optional    # optionally use an existing token
 ```
 
 Simply place the helper in any of your views to add the Plaid button:
