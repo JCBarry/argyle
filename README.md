@@ -49,6 +49,7 @@ The `plaid_link` helper takes the following options:
 :product => 'auth'    # overrides Arygle.configuration.product
 :webhook => optional  # optionally set a webhook for a user
 :token => optional    # optionally use an existing token
+:data => optional     # optionally set a data attribute. Example: `:data => { :longtail => true }`
 ```
 
 Simply place the helper in any of your views to add the Plaid button:

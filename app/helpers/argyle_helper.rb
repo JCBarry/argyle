@@ -25,6 +25,7 @@ module ArgyleHelper
     }
     data['webhook'] = options[:webhook] if options[:webhook]
     data['token'] = options[:token] if options[:token]
+    data.merge!(options[:data]) if options[:data]
 
     javascript_tag '', src: Argyle.configuration.plaid_src, data: data
   end

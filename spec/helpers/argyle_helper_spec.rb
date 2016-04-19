@@ -45,6 +45,11 @@ describe ArgyleHelper do
     it "returns the form and script HTML" do
       expect(helper.plaid_link(@options)).to eq("<form id=\"ohai\" action=\"/plaid/index\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><script src=\"https://cdn.plaid.com/link/stable/link-initialize.js\" data-client-name=\"ohai\" data-form-id=\"ohai\" data-key=\"key\" data-product=\"auth\" data-env=\"tartan\" data-webhook=\"http://myhook.com\" data-token=\"myToken\">\n//<![CDATA[\n\n//]]>\n</script>")
     end
+
+    it "accepts data attributes" do
+      @options.merge!({ :data => { :longtail => true } })
+      expect(helper.plaid_link(@options)).to eq("<form id=\"ohai\" action=\"/plaid/index\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><script src=\"https://cdn.plaid.com/link/stable/link-initialize.js\" data-client-name=\"ohai\" data-form-id=\"ohai\" data-key=\"key\" data-product=\"auth\" data-env=\"tartan\" data-webhook=\"http://myhook.com\" data-token=\"myToken\" data-longtail=\"true\">\n//<![CDATA[\n\n//]]>\n</script>")
+    end
   end
 
   describe "#plaid_link_form" do
