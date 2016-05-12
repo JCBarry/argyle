@@ -5,7 +5,7 @@ describe Argyle::CallbackController do
   describe "plaid_access_token" do
     before do
       controller.params[:public_token] = 'myPublicToken'
-      allow(controller).to receive(:plaid_exchange_token).and_return(Plaid::ExchangeTokenResponse.new({'access_token' => 'myToken'}))
+      allow(controller).to receive(:plaid_exchange_token).and_return(Plaid::User.new(nil, access_token: 'myToken'))
     end
 
     it "calls plaid_exchange_token" do
@@ -25,7 +25,7 @@ describe Argyle::CallbackController do
     end
 
     it "calls Plaid.set_user method" do
-      expect(Argyle.plaid_client).to receive(:set_user).with('myAccessToken', ["auth"])
+      expect(Argyle.plaid_client::User).to receive(:load).with('myAccessToken', ["auth"])
       controller.plaid_user
     end
   end
@@ -33,16 +33,17 @@ describe Argyle::CallbackController do
   describe "plaid_exchange_token" do
     before(:each) do
       controller.params[:public_token] = 'myPublicToken'
-      allow(Argyle.plaid_client).to receive(:exchange_token).and_return(Plaid::ExchangeTokenResponse.new)
+      controller.params[:account_id] = 'myAccountId'
+      allow(Argyle.plaid_client::User).to receive(:exchange_token).and_return(Plaid::User.new(nil))
     end
 
     it "calls the Plaid.exchange_token method" do
-      expect(Argyle.plaid_client).to receive(:exchange_token).with('myPublicToken')
+      expect(Argyle.plaid_client::User).to receive(:exchange_token).with('myPublicToken', 'myAccountId')
       controller.send(:plaid_exchange_token)
     end
 
     it "returns a plaid access_token_response" do
-      expect(controller.send(:plaid_exchange_token)).to be_a(Plaid::ExchangeTokenResponse)
+      expect(controller.send(:plaid_exchange_token)).to be_a(Plaid::User)
     end
   end
 

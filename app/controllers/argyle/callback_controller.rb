@@ -6,7 +6,7 @@ class Argyle::CallbackController < ApplicationController
   end
 
   def plaid_user
-    @plaid_user ||= Argyle.plaid_client.set_user(plaid_access_token, plaid_products)
+    @plaid_user ||= Argyle.plaid_client::User.load(plaid_access_token, plaid_products)
   end
 
   protected
@@ -17,7 +17,7 @@ class Argyle::CallbackController < ApplicationController
   end
 
   def plaid_exchange_token
-    @plaid_access_token_response ||= Argyle.plaid_client.exchange_token(plaid_public_token)
+    @plaid_access_token_response ||= Argyle.plaid_client::User.exchange_token(plaid_public_token, params[:account_id])
   end
 
   def plaid_products
