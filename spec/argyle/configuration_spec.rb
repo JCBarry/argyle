@@ -61,12 +61,12 @@ describe Argyle::Configuration do
   end
 
 
-  describe '#customer_id=' do
+  describe '#client_id=' do
     it 'can set value' do
       config = Argyle::Configuration.new
-      config.customer_id = 'myId'
+      config.client_id = 'myId'
 
-      expect(config.customer_id).to eq('myId')
+      expect(config.client_id).to eq('myId')
     end
   end
 
@@ -79,16 +79,16 @@ describe Argyle::Configuration do
     end
   end
 
-  describe '#environment_location' do
+  describe '#env' do
     it 'has a default value (test)' do
       config = Argyle::Configuration.new
-      expect(config.environment_location).to eq('https://tartan.plaid.com/')
+      expect(config.env).to eq('tartan')
     end
 
     it 'has a production value' do
       config = Argyle::Configuration.new
       config.env = 'production'
-      expect(config.environment_location).to eq('https://api.plaid.com/')
+      expect(config.env).to eq('production')
     end
   end
 end
