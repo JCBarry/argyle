@@ -4,6 +4,8 @@ A Rails plugin to make adding Plaid Link integrations super easy.  The plugin ai
 [Plaid](https://plaid.com) is the API for banking data.  
 [Plaid API documentation](https://plaid.com/docs)
 
+### If you're attempting to use Stripe ACH with Plaid Link you'll need to get the `1.0.0.beta` version of the gem which supports the latest version of the Plaid Ruby Library
+
 ## Installation
 
 Add this line to your Rails application's Gemfile:
