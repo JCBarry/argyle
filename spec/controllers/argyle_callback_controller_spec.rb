@@ -25,7 +25,7 @@ describe Argyle::CallbackController do
     end
 
     it "calls Plaid.set_user method" do
-      expect(Argyle.plaid_client::User).to receive(:load).with('myAccessToken', ["auth"])
+      expect(Argyle.plaid_client::User).to receive(:load).with(["auth"], 'myAccessToken')
       controller.plaid_user
     end
   end
