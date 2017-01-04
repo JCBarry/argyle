@@ -13,12 +13,13 @@ Gem::Specification.new do |s|
   s.summary     = "Rails helpers for Plaid Link"
   s.description = "Easily integrate Plaid Link into your Rails application"
   s.license     = "MIT"
+  s.required_ruby_version = '~> 2.0'
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", ">= 4.0.0"
-  s.add_dependency "plaid", "~> 2.0.0"
+  s.add_dependency "plaid", "~> 2.2"
 
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
