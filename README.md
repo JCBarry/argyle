@@ -1,5 +1,5 @@
 # Argyle [![Build Status](https://travis-ci.org/JCBarry/argyle.svg)](https://travis-ci.org/JCBarry/argyle) [![Code Climate](https://codeclimate.com/github/JCBarry/argyle/badges/gpa.svg)](https://codeclimate.com/github/JCBarry/argyle) [![Test Coverage](https://codeclimate.com/github/JCBarry/argyle/badges/coverage.svg)](https://codeclimate.com/github/JCBarry/argyle/coverage)
-A Rails plugin to make adding Plaid Link integrations super easy.  The plugin aims to remove some of the boilerplate and prioritize configuration-over-code.  It also encapsulates the [plaid-ruby](https://github.com/plaid/plaid-ruby) library for use throughout your application.
+A Rails plugin to make adding Plaid Link integrations super easy.  The plugin aims to remove some of the boilerplate and prioritize configuration-over-code.  It also encapsulates the [plaid-ruby](https://github.com/plaid/plaid-ruby) library for use throughout your application.  Stripe ACH features are available in this version.
 
 [Plaid](https://plaid.com) is the API for banking data.  
 [Plaid API documentation](https://plaid.com/docs)
