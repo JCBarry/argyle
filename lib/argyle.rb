@@ -19,10 +19,11 @@ module Argyle
   end
 
   def self.plaid_client
-    @plaid_client ||= Plaid.config do |p|
-      p.customer_id = configuration.customer_id
+    Plaid.config do |p|
+      p.client_id = configuration.client_id
       p.secret = configuration.secret
-      p.environment_location = configuration.environment_location
+      p.env = configuration.env.to_sym
     end
+    Plaid
   end
 end
