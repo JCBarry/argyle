@@ -6,7 +6,7 @@ class Argyle::CallbackController < ApplicationController
   end
 
   def plaid_user
-    @plaid_user ||= Argyle.plaid_client::User.load(plaid_access_token, plaid_products)
+    @plaid_user ||= Argyle.plaid_client::User.load(plaid_products.to_sym, plaid_access_token)
   end
 
   protected
