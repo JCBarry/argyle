@@ -1,4 +1,5 @@
 # Argyle [![Build Status](https://travis-ci.org/JCBarry/argyle.svg)](https://travis-ci.org/JCBarry/argyle) [![Code Climate](https://codeclimate.com/github/JCBarry/argyle/badges/gpa.svg)](https://codeclimate.com/github/JCBarry/argyle) [![Test Coverage](https://codeclimate.com/github/JCBarry/argyle/badges/coverage.svg)](https://codeclimate.com/github/JCBarry/argyle/coverage)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FJCBarry%2Fargyle.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FJCBarry%2Fargyle?ref=badge_shield)
 A Rails plugin to make adding Plaid Link integrations super easy.  The plugin aims to remove some of the boilerplate and prioritize configuration-over-code.  It also encapsulates the [plaid-ruby](https://github.com/plaid/plaid-ruby) library for use throughout your application.
 
 [Plaid](https://plaid.com) is the API for banking data.  
@@ -85,3 +86,6 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/jcbarr
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FJCBarry%2Fargyle.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FJCBarry%2Fargyle?ref=badge_large)
